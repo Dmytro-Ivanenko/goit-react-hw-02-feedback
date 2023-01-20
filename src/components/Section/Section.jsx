@@ -14,13 +14,13 @@ import styles from './section.module.scss';
 //   }
 // }
 
-function Section({ children, title }) {
+const Section = ({ children, title }) => {
   return (
     <>
       <h2 className={styles.title}>{title}</h2>
       {children}
     </>
   );
-}
+};
 
 export default Section;

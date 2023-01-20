@@ -7,13 +7,14 @@ class FeedbackOptions extends Component {
 
     return (
       <div className={styles.optionsWrapper}>
-        {this.this.props.title.map(type => {
+        {this.props.options.map(type => {
           return (
             <button
               key={type}
               type="button"
               className={styles.button}
-              onClick={onLeaveFeedback(String.toLowerCase(type))}
+              onClick={onLeaveFeedback}
+              name={type.toLowerCase()}
             >
               {type}
             </button>

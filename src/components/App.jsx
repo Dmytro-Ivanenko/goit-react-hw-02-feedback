@@ -10,11 +10,9 @@ class App extends Component {
   };
 
   onLeaveFeedback = evn => {
-    this.setState(prevState => {
-      return { [evn.target.name]: prevState[evn.target.name] + 1 };
+    this.setState({
+      [evn.target.name]: this.state[evn.target.name] + 1,
     });
-
-    // console.log(this.state);
   };
 
   render() {
