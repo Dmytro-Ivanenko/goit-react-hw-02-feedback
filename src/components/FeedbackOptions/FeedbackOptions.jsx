@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './feedbackOptions.module.scss';
 
-class FeedbackOptions extends Component {
-  render() {
-    const { onLeaveFeedback } = this.props;
+const FeedbackOptions = ({ onLeaveFeedback, options }) => {
+  return (
+    <div className={styles.optionsWrapper}>
+      {options.map(type => {
+        return (
+          <button
+            key={type}
+            type="button"
+            className={styles.button}
+            onClick={onLeaveFeedback}
+            name={type.toLowerCase()}
+          >
+            {type}
+          </button>
+        );
+      })}
+    </div>
+  );
+};
 
-    return (
-      <div className={styles.optionsWrapper}>
-        {this.props.options.map(type => {
-          return (
-            <button
-              key={type}
-              type="button"
-              className={styles.button}
-              onClick={onLeaveFeedback}
-              name={type.toLowerCase()}
-            >
-              {type}
-            </button>
-          );
-        })}
-      </div>
-    );
-  }
-}
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default FeedbackOptions;
