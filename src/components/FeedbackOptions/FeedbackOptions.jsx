@@ -12,7 +12,7 @@ const FeedbackOptions = ({ onLeaveFeedback, options }) => {
             type="button"
             className={styles.button}
             onClick={onLeaveFeedback}
-            name={type.toLowerCase()}
+            name={type}
           >
             {type}
           </button>
