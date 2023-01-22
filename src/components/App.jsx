@@ -11,12 +11,13 @@ class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = evn => {
+  onLeaveFeedback = type => {
     this.setState({
-      [evn.target.name]: this.state[evn.target.name] + 1,
+      [type]: this.state[type] + 1,
     });
   };
 
+  // statistics
   countTotalFeedback = () => {
     return Object.values(this.state).reduce((count, value) => {
       return count + value;
@@ -25,10 +26,9 @@ class App extends Component {
 
   countPositiveFeedbackPercentage = () => {
     const total = this.countTotalFeedback();
-    const result = total > 0 ? (this.state.good / total) * 100 : 0;
-    return result;
+    return Math.round((this.state.good / total) * 100);
   };
-
+  //-----------------------------------------------------------
   render() {
     const { good, neutral, bad } = this.state;
 
