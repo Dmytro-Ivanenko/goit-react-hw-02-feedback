@@ -12,8 +12,8 @@ class App extends Component {
   };
 
   onLeaveFeedback = type => {
-    this.setState({
-      [type]: this.state[type] + 1,
+    this.setState(prevState => {
+      return { [type]: prevState[type] + 1 };
     });
   };
 
